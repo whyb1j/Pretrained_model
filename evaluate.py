@@ -16,6 +16,10 @@ class mini_imagenet(Dataset):
     重构Dateset类
     """
     def __init__(self,root,transform=None) :
+        """初始化
+        :param root: 根目录
+        :param transform: 规定预处理方式 
+        """
         #根目录
         self.root=root    
         #定义预处理方式
@@ -49,9 +53,16 @@ class mini_imagenet(Dataset):
         #print(len(self.image_path_list))
     
     def __len__(self):
+        """计算图像数量
+        :return: 图像的数量
+        """
         return len(self.image_path_list)
     
     def __getitem__(self, num):
+        """返回数据集中对应索引位置的图像和其对应的类别索引
+        :param num:索引位置
+        :return: 图像和类别索引
+        """
         image_path = self.image_path_list[num]
         img = Image.open(image_path)
         index = self.index_list[num]
@@ -59,7 +70,9 @@ class mini_imagenet(Dataset):
         return img, index
     
     def get_map(self) :
-        #读取映射关系
+        """
+        读取映射关系
+        """
         class2index_path=f'{self.root}\\imagenet_class_index.json'
         with open(class2index_path,'r') as f :
             map=json.load(f)

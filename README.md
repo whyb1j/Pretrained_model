@@ -1,14 +1,12 @@
 ### 任务描述
 
-### 任务描述
-
 预训练模型图像分类
 
 ### 数据来源
 
-数据集：[mini-ImageNet]("https://pan.baidu.com/s/1bQTtrkEgWfs_iaVRwxPF3Q#list/path=%2Fsharelink2168611027-758932909271168%2Fmini-imagenet&parentPath=%2Fsharelink2168611027-758932909271168")   密码：33e7   （仅使用了 test.csv ）
+数据集：[mini-ImageNet](https://pan.baidu.com/s/1bQTtrkEgWfs_iaVRwxPF3Q#list/path=%2Fsharelink2168611027-758932909271168%2Fmini-imagenet&parentPath=%2Fsharelink2168611027-758932909271168)   密码：33e7   （仅使用了 test.csv ）
 
-JSON文件：[标签映射]("[deep-learning-for-image-processing/pytorch_classification/mini_imagenet/imagenet_class_index.json at master · WZMIAOMIAO/deep-learning-for-image-processing (github.com)](https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/pytorch_classification/mini_imagenet/imagenet_class_index.json)")
+JSON文件：[标签映射](https://github.com/WZMIAOMIAO/deep-learning-for-image-processing/blob/master/pytorch_classification/mini_imagenet/imagenet_class_index.json)
 
 ### 模型在测试集上的准确率
 
@@ -41,7 +39,7 @@ filetree
 #### 模型评估
 
 ```shell
-python evaluate.py --batch_size 16 --num_workers 4 --device 'cuda:0'
+python evaluate.py --root 'your dir' --batch_size 16 --num_workers 4 --device 'cuda:0'
 ```
 
 #### 图像预测

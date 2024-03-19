@@ -38,13 +38,13 @@ def Vgg19() :
     print(f"共有{n_l}个全连接层")
     print(f"总神经元数: {total_neurons}")
 def to_list(layer):
-  """
-  返回所有子层
+  """计算所有子层
+  :return: 所有子层
   """
   return list(layer.children())
 def calculate(layer,input_tensor): 
-     """
-    单独计算特殊结构的神经元个数
+     """单独计算特殊结构的神经元个数
+     :return: 神经元个数
      """
      if isinstance(layer, nn.Conv2d) or isinstance(layer, nn.Linear) :
         currenct_num_neurons = torch.prod(torch.tensor(input_tensor.shape[1:])).item()
