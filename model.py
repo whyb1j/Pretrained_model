@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 import torchvision.models as models
+from torchinfo import summary
 def Vgg19() :
     vgg19 = models.vgg19()
     total_neurons = 0
@@ -78,7 +79,21 @@ def Resnet152() :
     print(f'全连接层神经元个数：{1000}')
     total_neurons+=(total_neurons_downsample+input_neurons)
     print(f'总神经元个数：{total_neurons}')
-
-if __name__=='main': 
+def print_model(name):
+    if name=='Alexnet':
+        model = models.alexnet()
+    elif name == 'VGG19':
+        model = models.vgg19()
+    elif name=='Resnet152' :
+        model = models.resnet152()
+    else:
+        print("无效的模型名称。请选择'Alexnet'、'VGG19'或'Resnet152'之一。")
+        return
+    summary(model, (1,3, 224, 224))
+if __name__ == '__main__' :
+    MODEL_DICT=['Alexnet','VGG19','Resnet152']
+    print_model(MODEL_DICT[0])
+    print("-------VGG19-------")
     Vgg19()
+    print("-------Resnet152-------")
     Resnet152()
