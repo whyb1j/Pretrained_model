@@ -37,20 +37,21 @@ filetree
 ### 用法
 
 #### 模型评估
-
+从images文件夹中加载数据
 ```shell
 python evaluate.py --root 'your dir' --batch_size 16 --num_workers 4 --device 'cuda:0'
 ```
-
+输出结果为三个模型的准确率
 #### 图像预测
-
+从sub_images文件夹中加载数据(自己从数据集中挑选)
 ```shell
 python test.py 
 ```
+输出结果保存在results文件夹中
+#### 模型打印
 
-#### 模型神经元数目计算
-
-```
+```shell
 python model.py
 ```
+
 
